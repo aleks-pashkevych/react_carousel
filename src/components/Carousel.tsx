@@ -16,26 +16,42 @@ const Carousel: React.FC<Props> = ({
   frameSize = 3,
   step = 3,
   // animationDuration = 1000,
-  // infinite = false,
+  infinite = true,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    if (currentIndex < images.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < images.length * frameSize - step) {
+      setCurrentIndex(currentIndex + step);
+    } else if (infinite === true) {
+      setCurrentIndex(0);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > step) {
+      setCurrentIndex(currentIndex * frameSize - step);
+    } else if (infinite === true) {
+      setCurrentIndex(images.length - step);
     }
   };
 
   return (
-    <div className="Carousel">
+    <div
+      className="Carousel"
+      style={{
+        display: 'block',
+        overflow: 'hidden',
+        padding: '0 auto',
+      }}
+    >
       <ul
         className="Carousel__list"
         style={{
           display: 'flex',
-          gap: '10px',
-          margin: '0 auto',
           overflow: 'hidden',
           width: `${itemWidth * frameSize}px`,
+          padding: 0,
         }}
       >
         {images.map((image, index) => {
@@ -43,9 +59,10 @@ const Carousel: React.FC<Props> = ({
             <li key={index} style={{ listStyle: 'none' }}>
               <img
                 src={image}
-                alt={`${currentIndex + 1}`}
+                alt={`${currentIndex + step}`}
                 style={{
-                  transform: `translateX(-${currentIndex * step * itemWidth}px)`,
+                  transform: `translateX(-${currentIndex * itemWidth}px)`,
+                  display: 'block',
                 }}
               />
             </li>
@@ -56,14 +73,17 @@ const Carousel: React.FC<Props> = ({
       <button
         type="button"
         onClick={() => {
-          if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-          }
+          handlePrev();
         }}
       >
         Prev
       </button>
-      <button type="button" onClick={handleNext}>
+      <button
+        type="button"
+        onClick={() => {
+          handleNext();
+        }}
+      >
         Next
       </button>
     </div>

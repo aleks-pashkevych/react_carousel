@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.scss';
 import Carousel from './components/Carousel';
 
@@ -32,17 +33,22 @@ class App extends React.Component<{}, State> {
   };
 
   render() {
-    const {
-      images,
-      // itemWidth, frameSize, step, animationDuration, infinite
-    } = this.state;
+    const { images, itemWidth, frameSize, step, animationDuration, infinite } =
+      this.state;
 
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
         <h1>Carousel with {images.length} images</h1>
 
-        <Carousel images={images} />
+        <Carousel
+          images={images}
+          itemWidth={itemWidth}
+          frameSize={frameSize}
+          step={step}
+          animationDuration={animationDuration}
+          infinite={infinite}
+        />
       </div>
     );
   }
