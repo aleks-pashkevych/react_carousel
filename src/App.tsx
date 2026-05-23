@@ -41,47 +41,47 @@ class App extends React.Component<{}, State> {
         {/* eslint-disable-next-line */}
         <h1 data-cy="title">Carousel with {images.length} images</h1>
         <div className="controls">
-          <label htmlFor="itemId">itemWidth:</label>
+          <label htmlFor="itemWidth">itemWidth:</label>
           <input
             type="number"
-            id="itemId"
+            id="itemWidth"
             value={itemWidth}
             step={10}
             onChange={e => this.setState({ itemWidth: +e.target.value })}
           />
-          <label htmlFor="frameId">Frame Size:</label>
+          <label htmlFor="frameSize">Frame Size:</label>
           <input
             type="number"
             value={frameSize}
-            id="frameId"
+            id="frameSize"
             min={1}
             step={1}
             max={images.length}
             onChange={e => this.setState({ frameSize: +e.target.value })}
           />
-          <label htmlFor="stepId">Step:</label>
+          <label htmlFor="step">Step:</label>
           <input
             type="number"
             value={step}
             step={1}
             min={1}
             max={images.length}
-            id="stepId"
+            id="step"
             onChange={e => this.setState({ step: +e.target.value })}
           />
-          <label htmlFor="animationDurationId">Animation Duration:</label>
+          <label htmlFor="animationDuration">Animation Duration:</label>
           <input
             type="number"
-            id="animationDurationId"
+            id="animationDuration"
             value={animationDuration}
             onChange={e =>
               this.setState({ animationDuration: +e.target.value })
             }
           />
-          <label htmlFor="infiniteId">Infinite:</label>
+          <label htmlFor="infinite">Infinite:</label>
           <input
             type="checkbox"
-            id="infiniteId"
+            id="infinite"
             onChange={e => this.setState({ infinite: e.target.checked })}
           />
         </div>
