@@ -21,7 +21,7 @@ const Carousel: React.FC<Props> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    if (currentIndex + step <= images.length - frameSize) {
+    if (currentIndex + step < images.length) {
       setCurrentIndex(currentIndex + step);
     } else if (infinite === true) {
       setCurrentIndex(0);
@@ -45,9 +45,6 @@ const Carousel: React.FC<Props> = ({
       className="Carousel"
       style={{
         width: `${itemWidth * frameSize}px`,
-        // display: 'block',
-        // overflow: 'hidden',
-        // padding: '0 auto',
       }}
     >
       <ul
