@@ -12,7 +12,7 @@ type Props = {
 
 const Carousel: React.FC<Props> = ({
   images,
-  itemWidth = +130,
+  itemWidth = 130,
   frameSize = 3,
   step = 3,
   animationDuration = 1000,
@@ -21,12 +21,10 @@ const Carousel: React.FC<Props> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    if (currentIndex + step < images.length) {
+    if (currentIndex + step <= images.length - frameSize) {
       setCurrentIndex(currentIndex + step);
     } else if (infinite === true) {
       setCurrentIndex(0);
-
-      return;
     }
 
     return;
