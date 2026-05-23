@@ -65,6 +65,25 @@ class App extends React.Component<{}, State> {
               onChange={e => this.setState({ step: +e.target.value })}
             />
           </label>
+          <label>
+            Animation Duration:
+            <input
+              type="number"
+              value={animationDuration}
+              onChange={e =>
+                this.setState({ animationDuration: +e.target.value })
+              }
+            />
+          </label>
+          <label>
+            Infinite:
+            <input
+              type="checkbox"
+              onChange={e => {
+                this.setState({ infinite: Boolean(+e.target.checked) });
+              }}
+            />
+          </label>
         </div>
 
         <Carousel
