@@ -20,7 +20,7 @@ const Carousel: React.FC<Props> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
-    if (currentIndex <= images.length - frameSize) {
+    if (currentIndex + step <= images.length - frameSize) {
       setCurrentIndex(currentIndex + step);
     } else if (infinite === true) {
       setCurrentIndex(0);
@@ -31,7 +31,7 @@ const Carousel: React.FC<Props> = ({
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - step);
     } else if (infinite === true) {
-      setCurrentIndex(images.length - step);
+      setCurrentIndex(images.length - frameSize);
     }
   };
 
@@ -51,14 +51,18 @@ const Carousel: React.FC<Props> = ({
           overflow: 'hidden',
           width: `${itemWidth * frameSize}px`,
           padding: 0,
-          transform: `translateX(-${currentIndex * itemWidth * step}px)`,
+          transform: `translateX(-${currentIndex * itemWidth}px)`,
           transition: `transform ${animationDuration}ms`,
         }}
       >
         {images.map((image, index) => {
           return (
             <li key={index} style={{ listStyle: 'none' }}>
-              <img src={image} alt={`${currentIndex + step}`} />
+              <img
+                src={image}
+                alt={`${currentIndex + step}`}
+                style={{ width: `${itemWidth}px` }}
+              />
             </li>
           );
         })}
