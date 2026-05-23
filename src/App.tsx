@@ -40,53 +40,50 @@ class App extends React.Component<{}, State> {
       <div className="App">
         {/* eslint-disable-next-line */}
         <h1 data-cy="title">Carousel with {images.length} images</h1>
-        <div className="inputs">
-          <label htmlFor="itemWidthId">
-            itemWidth:
-            <input
-              type="number"
-              id="itemWidthId"
-              value={itemWidth}
-              onChange={e => this.setState({ itemWidth: +e.target.value })}
-            />
-          </label>
-          <label htmlFor="frameSizeId">
-            Frame Size:
-            <input
-              type="number"
-              value={frameSize}
-              id="frameSizeId"
-              onChange={e => this.setState({ frameSize: +e.target.value })}
-            />
-          </label>
-          <label htmlFor="stepId">
-            Step:
-            <input
-              type="number"
-              value={step}
-              id="stepId"
-              onChange={e => this.setState({ step: +e.target.value })}
-            />
-          </label>
-          <label htmlFor="animationDurationId">
-            Animation Duration:
-            <input
-              type="number"
-              id="animationDurationId"
-              value={animationDuration}
-              onChange={e =>
-                this.setState({ animationDuration: +e.target.value })
-              }
-            />
-          </label>
-          <label htmlFor="infiniteId">
-            Infinite:
-            <input
-              type="checkbox"
-              id="infiniteId"
-              onChange={e => this.setState({ infinite: e.target.checked })}
-            />
-          </label>
+        <div className="controls">
+          <label htmlFor="itemId">itemWidth:</label>
+          <input
+            type="number"
+            id="itemId"
+            value={itemWidth}
+            step={10}
+            onChange={e => this.setState({ itemWidth: +e.target.value })}
+          />
+          <label htmlFor="frameId">Frame Size:</label>
+          <input
+            type="number"
+            value={frameSize}
+            id="frameId"
+            min={1}
+            step={1}
+            max={images.length}
+            onChange={e => this.setState({ frameSize: +e.target.value })}
+          />
+          <label htmlFor="stepId">Step:</label>
+          <input
+            type="number"
+            value={step}
+            step={1}
+            min={1}
+            max={images.length}
+            id="stepId"
+            onChange={e => this.setState({ step: +e.target.value })}
+          />
+          <label htmlFor="animationDurationId">Animation Duration:</label>
+          <input
+            type="number"
+            id="animationDurationId"
+            value={animationDuration}
+            onChange={e =>
+              this.setState({ animationDuration: +e.target.value })
+            }
+          />
+          <label htmlFor="infiniteId">Infinite:</label>
+          <input
+            type="checkbox"
+            id="infiniteId"
+            onChange={e => this.setState({ infinite: e.target.checked })}
+          />
         </div>
 
         <Carousel
