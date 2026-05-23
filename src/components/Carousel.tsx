@@ -40,7 +40,7 @@ const Carousel: React.FC<Props> = ({
       className="Carousel"
       style={{
         display: 'block',
-        // overflow: 'hidden',
+        overflow: 'hidden',
         padding: '0 auto',
       }}
     >
@@ -81,7 +81,7 @@ const Carousel: React.FC<Props> = ({
       <button
         type="button"
         data-cy="next"
-        disabled={!infinite && currentIndex + step >= images.length}
+        disabled={!infinite && currentIndex + step > images.length - frameSize}
         onClick={() => {
           handleNext();
         }}
