@@ -12,7 +12,7 @@ type Props = {
 
 const Carousel: React.FC<Props> = ({
   images,
-  itemWidth = 130,
+  itemWidth = +130,
   frameSize = 3,
   step = 3,
   animationDuration = 1000,
@@ -67,6 +67,7 @@ const Carousel: React.FC<Props> = ({
               <img
                 src={image}
                 alt="image"
+                data-cy="carousel-img"
                 style={{ width: `${itemWidth}px` }}
               />
             </li>
