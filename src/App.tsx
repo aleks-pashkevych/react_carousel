@@ -79,9 +79,7 @@ class App extends React.Component<{}, State> {
             Infinite:
             <input
               type="checkbox"
-              onChange={e => {
-                this.setState({ infinite: Boolean(+e.target.checked) });
-              }}
+              onChange={e => this.setState({ infinite: e.target.checked })}
             />
           </label>
         </div>
