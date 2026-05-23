@@ -71,7 +71,7 @@ const Carousel: React.FC<Props> = ({
       <button
         type="button"
         data-cy="prev"
-        disabled={!infinite && currentIndex === 0}
+        disabled={!infinite && currentIndex - step < 0}
         onClick={() => {
           handlePrev();
         }}

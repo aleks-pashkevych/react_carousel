@@ -41,44 +41,49 @@ class App extends React.Component<{}, State> {
         {/* eslint-disable-next-line */}
         <h1 data-cy="title">Carousel with {images.length} images</h1>
         <div className="inputs">
-          <label>
+          <label htmlFor="itemWidthId">
             itemWidth:
             <input
               type="number"
+              id="itemWidthId"
               value={itemWidth}
               onChange={e => this.setState({ itemWidth: +e.target.value })}
             />
           </label>
-          <label>
+          <label htmlFor="frameSizeId">
             Frame Size:
             <input
               type="number"
               value={frameSize}
+              id="frameSizeId"
               onChange={e => this.setState({ frameSize: +e.target.value })}
             />
           </label>
-          <label>
+          <label htmlFor="stepId">
             Step:
             <input
               type="number"
               value={step}
+              id="stepId"
               onChange={e => this.setState({ step: +e.target.value })}
             />
           </label>
-          <label>
+          <label htmlFor="animationDurationId">
             Animation Duration:
             <input
               type="number"
+              id="animationDurationId"
               value={animationDuration}
               onChange={e =>
                 this.setState({ animationDuration: +e.target.value })
               }
             />
           </label>
-          <label>
+          <label htmlFor="infiniteId">
             Infinite:
             <input
               type="checkbox"
+              id="infiniteId"
               onChange={e => this.setState({ infinite: e.target.checked })}
             />
           </label>
