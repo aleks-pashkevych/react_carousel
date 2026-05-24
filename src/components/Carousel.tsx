@@ -45,13 +45,13 @@ const Carousel: React.FC<Props> = ({
       className="Carousel"
       style={{
         width: `${itemWidth * frameSize}px`,
+        overflow: 'hidden',
       }}
     >
       <ul
         className="Carousel__list"
         style={{
           display: 'flex',
-          overflow: 'hidden',
           width: `${itemWidth * frameSize}px`,
           padding: 0,
           transform: `translateX(-${currentIndex * itemWidth}px)`,
