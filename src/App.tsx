@@ -45,6 +45,7 @@ class App extends React.Component<{}, State> {
           <input
             type="number"
             id="itemId"
+            data-cy="itemId"
             value={itemWidth}
             step={10}
             onChange={e => this.setState({ itemWidth: +e.target.value })}
