@@ -88,7 +88,7 @@ const Carousel: React.FC<Props> = ({
       <button
         type="button"
         data-cy="next"
-        disabled={!infinite && currentIndex >= images.length - frameSize}
+        disabled={!infinite && currentIndex >= images.length - frameSize - 1}
         onClick={() => {
           handleNext();
         }}
