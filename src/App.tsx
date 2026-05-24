@@ -39,15 +39,26 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
-        <h1 data-cy="title">Carousel with {images.length} images</h1>
-        <div className="controls">
+        <h1 data-cy="title" style={{ textAlign: 'center' }}>
+          Carousel with {images.length} images
+        </h1>
+        <div
+          className="controls"
+          style={{
+            width: '200px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <label htmlFor="itemId">itemWidth:</label>
           <input
             type="number"
             id="itemId"
-            data-cy="itemId"
+            data-cy="data-width"
             value={itemWidth}
-            step={10}
+            step={step}
+            min="0"
             onChange={e => this.setState({ itemWidth: +e.target.value })}
           />
           <label htmlFor="frameId">Frame Size:</label>

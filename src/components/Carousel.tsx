@@ -46,6 +46,7 @@ const Carousel: React.FC<Props> = ({
       style={{
         width: `${itemWidth * frameSize}px`,
         overflow: 'hidden',
+        margin: '0 auto',
       }}
     >
       <ul
@@ -78,7 +79,7 @@ const Carousel: React.FC<Props> = ({
       <button
         type="button"
         data-cy="prev"
-        disabled={!infinite && currentIndex === 0}
+        disabled={!infinite && currentIndex < 0}
         onClick={() => {
           handlePrev();
         }}
