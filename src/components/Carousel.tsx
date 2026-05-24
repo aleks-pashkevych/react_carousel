@@ -67,9 +67,9 @@ const Carousel: React.FC<Props> = ({
             >
               <img
                 src={image}
-                alt="image"
+                alt={String(index + 1)}
                 data-cy="carousel-img"
-                style={{ width: `${itemWidth}px` }}
+                width={itemWidth}
               />
             </li>
           );

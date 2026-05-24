@@ -57,8 +57,9 @@ class App extends React.Component<{}, State> {
             id="itemId"
             data-cy="data-width"
             value={itemWidth}
-            step={step}
-            min="0"
+            min={0}
+            max={260}
+            step={10}
             onChange={e => this.setState({ itemWidth: +e.target.value })}
           />
           <label htmlFor="frameId">Frame Size:</label>
@@ -74,11 +75,11 @@ class App extends React.Component<{}, State> {
           <label htmlFor="stepId">Step:</label>
           <input
             type="number"
+            id="stepId"
             value={step}
             step={1}
             min={1}
             max={images.length}
-            id="stepId"
             onChange={e => this.setState({ step: +e.target.value })}
           />
           <label htmlFor="animationDuration">Animation Duration:</label>
